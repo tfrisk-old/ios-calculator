@@ -20,4 +20,17 @@
     return self;
 }
 
+- (void)setOperand:(double)anOperand
+{
+    // Set operand
+    operand = anOperand;
+}
+
+- (double)performOperation:(NSString *)operation
+{
+    //
+    [operation sendMessage:argument];
+    return aDouble;
+}
+
 @end

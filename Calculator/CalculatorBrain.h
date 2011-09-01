@@ -9,5 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface CalculatorBrain : NSObject
+{
+    // Instance variables here
+    double operand;
+}
+
+// Method declarations here
+
+- (void)setOperand:(double)anOperand;
+
+- (double)performOperation:(NSString *)operation;
 
 @end

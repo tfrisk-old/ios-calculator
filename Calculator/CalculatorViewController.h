@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CalculatorBrain.h"
 
 @interface CalculatorViewController : UIViewController
+{
+    // Text label IBOutlet
+    IBOutlet UILabel *display;
+    CalculatorBrain *brain;
+}
+
+- (IBAction)digitPressed:(UIButton *)sender;
+- (IBAction)operationPressed:(UIButton *)sender;
 
 @end
