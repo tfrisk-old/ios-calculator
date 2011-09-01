@@ -23,6 +23,7 @@
 		991A3B5A140FF5A800D8E35F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 991A3B58140FF5A800D8E35F /* InfoPlist.strings */; };
 		991A3B5C140FF5A800D8E35F /* CalculatorTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 991A3B5B140FF5A800D8E35F /* CalculatorTests.h */; };
 		991A3B5E140FF5A800D8E35F /* CalculatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 991A3B5D140FF5A800D8E35F /* CalculatorTests.m */; };
+		991A3B69140FF8BF00D8E35F /* CalculatorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 991A3B68140FF8BF00D8E35F /* CalculatorBrain.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		991A3B59140FF5A800D8E35F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		991A3B5B140FF5A800D8E35F /* CalculatorTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorTests.h; sourceTree = "<group>"; };
 		991A3B5D140FF5A800D8E35F /* CalculatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorTests.m; sourceTree = "<group>"; };
+		991A3B67140FF8BF00D8E35F /* CalculatorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalculatorBrain.h; sourceTree = "<group>"; };
+		991A3B68140FF8BF00D8E35F /* CalculatorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalculatorBrain.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				991A3B3D140FF5A800D8E35F /* CalculatorAppDelegate.m */,
 				991A3B3F140FF5A800D8E35F /* MainWindow.xib */,
 				991A3B42140FF5A800D8E35F /* CalculatorViewController.h */,
+				991A3B67140FF8BF00D8E35F /* CalculatorBrain.h */,
+				991A3B68140FF8BF00D8E35F /* CalculatorBrain.m */,
 				991A3B43140FF5A800D8E35F /* CalculatorViewController.m */,
 				991A3B45140FF5A800D8E35F /* CalculatorViewController.xib */,
 				991A3B34140FF5A800D8E35F /* Supporting Files */,
@@ -265,6 +270,7 @@
 				991A3B3A140FF5A800D8E35F /* main.m in Sources */,
 				991A3B3E140FF5A800D8E35F /* CalculatorAppDelegate.m in Sources */,
 				991A3B44140FF5A800D8E35F /* CalculatorViewController.m in Sources */,
+				991A3B69140FF8BF00D8E35F /* CalculatorBrain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
