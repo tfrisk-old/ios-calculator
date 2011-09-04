@@ -41,4 +41,44 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+#pragma mark - Calculator functions
+
+// Init our model if necessary
+- (CalculatorBrain *)brain
+{
+    if (!brain) {
+        brain = [[CalculatorBrain alloc] init];
+    }
+    return brain;
+}
+
+// IBAction handlers
+- (IBAction)digitPressed:(UIButton *)sender
+{
+    NSString *digit = [[sender titleLabel] text];
+    // Check if user is typing a longer number
+    if (userIsInTheMiddleOfTypingANumber) {
+        [display setText:[[display text] stringByAppendingString:digit]];
+         } else {
+             [display setText:digit];
+             userIsInTheMiddleOfTypingANumber = YES;
+         }
+}
+
+- (IBAction)operationPressed:(UIButton *)sender
+{
+    // Check if user is typing a longer number
+    if (userIsInTheMiddleOfTypingANumber) {
+        [[self brain] setOperand:[[display text] doubleValue]];
+         userIsInTheMiddleOfTypingANumber = NO;
+    }
+    // Read button label text (sender is UIButton which was pressed)
+    NSString *operation = [[sender titleLabel] text];
+    // Init our model if necessary and perform operation
+    double result = [[self brain] performOperation:operation];
+    
+    // Set UILabel text with specified format
+    [display setText:[NSString stringWithFormat:@"%g", result]];
+}
+
 @end

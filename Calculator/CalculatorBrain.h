@@ -12,6 +12,8 @@
 {
     // Instance variables here
     double operand;
+    double waitingOperand;
+    NSString *waitingOperation;
 }
 
 // Method declarations here

@@ -15,6 +15,7 @@
     IBOutlet UILabel *display;
     // Pointer to our model
     CalculatorBrain *brain;
+    BOOL userIsInTheMiddleOfTypingANumber;
 }
 
 // Action handlers

@@ -26,9 +26,35 @@
     operand = anOperand;
 }
 
+- (void) performWaitingOperation
+{
+    if ([@"+" isEqual:waitingOperation]) {
+        operand = waitingOperand + operand;
+    } else if ([@"-" isEqual:waitingOperation]) {
+        operand = waitingOperand - operand;
+    } else if ([@"*" isEqual:waitingOperation]) {
+        operand = waitingOperand * operand;
+    } else if ([@"/" isEqual:waitingOperation]) {
+        if (operand) { // Prevent divided-by-zero
+            operand = waitingOperand / operand;
+        }
+    }
+}
+
 - (double)performOperation:(NSString *)operation
 {
-    // Perform calculation
+    // Perform operations
+    
+    // Send message to 'operation', ask if you are equal to "sqrt"
+    // Remember to add @!
+    if ([operation isEqual:@"sqrt"]) {
+        operand = sqrt(operand);
+    } else {
+        [self performWaitingOperation];
+        waitingOperation = operation;
+        waitingOperand = operand;
+    }
+    return operand;
 }
 
 @end
