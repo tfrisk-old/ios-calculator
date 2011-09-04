@@ -10,12 +10,14 @@
 #import "CalculatorBrain.h"
 
 @interface CalculatorViewController : UIViewController
-{
-    // Text label IBOutlet
+{    
+    // Hook to our view
     IBOutlet UILabel *display;
+    // Pointer to our model
     CalculatorBrain *brain;
 }
 
+// Action handlers
 - (IBAction)digitPressed:(UIButton *)sender;
 - (IBAction)operationPressed:(UIButton *)sender;
 

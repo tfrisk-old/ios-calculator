@@ -28,9 +28,7 @@
 
 - (double)performOperation:(NSString *)operation
 {
-    //
-    [operation sendMessage:argument];
-    return aDouble;
+    // Perform calculation
 }
 
 @end
