@@ -49,6 +49,16 @@
     // Remember to add @!
     if ([operation isEqual:@"sqrt"]) {
         operand = sqrt(operand);
+    } else if ([operation isEqual:@"1/x"]) {
+        if (operand) {
+            operand = 1 / operand;
+        }
+    } if ([operation isEqual:@"+/-"]) {
+        operand = 0 - operand;
+    } if ([operation isEqual:@"sin()"]) {
+        operand = sin(operand);
+    } if ([operation isEqual:@"cos()"]) {
+        operand = cos(operand);
     } else {
         [self performWaitingOperation];
         waitingOperation = operation;
