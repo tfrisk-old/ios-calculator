@@ -16,6 +16,7 @@
     // Pointer to our model
     CalculatorBrain *brain;
     BOOL userIsInTheMiddleOfTypingANumber;
+    BOOL userIsTypingFloat;
 }
 
 // Action handlers

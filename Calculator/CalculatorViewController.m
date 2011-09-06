@@ -55,7 +55,17 @@
 // IBAction handlers
 - (IBAction)digitPressed:(UIButton *)sender
 {
+    // Read button label
     NSString *digit = [[sender titleLabel] text];
+    
+    // Allow '.' only once
+    if ([digit isEqual:@"."]) {
+        if (userIsTypingFloat) {
+            return;
+        }
+        userIsTypingFloat = YES;
+    }
+    
     // Check if user is typing a longer number
     if (userIsInTheMiddleOfTypingANumber) {
         [display setText:[[display text] stringByAppendingString:digit]];
@@ -70,7 +80,10 @@
     // Check if user is typing a longer number
     if (userIsInTheMiddleOfTypingANumber) {
         [[self brain] setOperand:[[display text] doubleValue]];
-         userIsInTheMiddleOfTypingANumber = NO;
+        
+        // Reset number entry bools
+        userIsInTheMiddleOfTypingANumber = NO;
+        userIsTypingFloat = NO;
     }
     // Read button label text (sender is UIButton which was pressed)
     NSString *operation = [[sender titleLabel] text];
