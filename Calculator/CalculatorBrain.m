@@ -53,13 +53,24 @@
         if (operand) {
             operand = 1 / operand;
         }
-    } if ([operation isEqual:@"+/-"]) {
+    } else if ([operation isEqual:@"+/-"]) {
         operand = 0 - operand;
-    } if ([operation isEqual:@"sin()"]) {
+    } else if ([operation isEqual:@"sin()"]) {
         operand = sin(operand);
-    } if ([operation isEqual:@"cos()"]) {
+    } else if ([operation isEqual:@"cos()"]) {
         operand = cos(operand);
-    } else {
+    } else if ([operation isEqual:@"store"]) {
+        memOperand = operand;
+    } else if ([operation isEqual:@"recall"]) {
+        operand = memOperand;
+    } else if ([operation isEqual:@"mem+"]) {
+        memOperand = memOperand + operand;
+    } else if ([operation isEqual:@"C"]) {
+        memOperand = 0;
+        operand = 0;
+        waitingOperand = 0;
+    }
+    else {
         [self performWaitingOperation];
         waitingOperation = operation;
         waitingOperand = operand;

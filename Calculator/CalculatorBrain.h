@@ -14,6 +14,8 @@
     double operand;
     double waitingOperand;
     NSString *waitingOperation;
+    
+    double memOperand;
 }
 
 // Method declarations here

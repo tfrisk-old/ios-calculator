@@ -69,10 +69,10 @@
     // Check if user is typing a longer number
     if (userIsInTheMiddleOfTypingANumber) {
         [display setText:[[display text] stringByAppendingString:digit]];
-         } else {
-             [display setText:digit];
-             userIsInTheMiddleOfTypingANumber = YES;
-         }
+    } else {
+        [display setText:digit];
+        userIsInTheMiddleOfTypingANumber = YES;
+   }
 }
 
 - (IBAction)operationPressed:(UIButton *)sender
