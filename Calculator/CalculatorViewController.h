@@ -13,8 +13,10 @@
 {    
     // Hook to our view
     IBOutlet UILabel *display;
+    IBOutlet UILabel *statusDisplay;
     // Pointer to our model
     CalculatorBrain *brain;
+    // Status flags
     BOOL userIsInTheMiddleOfTypingANumber;
     BOOL userIsTypingFloat;
 }

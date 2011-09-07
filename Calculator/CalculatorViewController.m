@@ -52,29 +52,42 @@
     return brain;
 }
 
-// IBAction handlers
+// Digit button handler (0-9 and decimal dot)
 - (IBAction)digitPressed:(UIButton *)sender
 {
     // Read button label
     NSString *digit = [[sender titleLabel] text];
     
-    // Allow '.' only once
+    // Allow decimal dot only once
     if ([digit isEqual:@"."]) {
         if (userIsTypingFloat) {
             return;
         }
+        // Flag decimal usage
         userIsTypingFloat = YES;
+    }
+    
+    // Do not allow multiple zeroes in front of the number
+    if ([digit isEqual:@"0"] && [[display text] hasPrefix:@"0"]) {
+        return;
     }
     
     // Check if user is typing a longer number
     if (userIsInTheMiddleOfTypingANumber) {
         [display setText:[[display text] stringByAppendingString:digit]];
     } else {
-        [display setText:digit];
+        // If user starts with decimal dot, apply 0 for neatness
+        if ([digit isEqual:@"."]) {
+            [display setText:@"0."];
+        } else {
+            // Else start with regular digit
+            [display setText:digit];
+        }
         userIsInTheMiddleOfTypingANumber = YES;
    }
 }
 
+// Operation button handler
 - (IBAction)operationPressed:(UIButton *)sender
 {
     // Check if user is typing a longer number

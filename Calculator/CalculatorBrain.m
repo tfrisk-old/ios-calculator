@@ -43,7 +43,7 @@
 
 - (double)performOperation:(NSString *)operation
 {
-    // Perform operations
+    // Perform operations, first try to do single action operations
     
     // Send message to 'operation', ask if you are equal to "sqrt"
     // Remember to add @!
@@ -70,6 +70,7 @@
         operand = 0;
         waitingOperand = 0;
     }
+    // If operation requires two numbers, we have to go extra round
     else {
         [self performWaitingOperation];
         waitingOperation = operation;
