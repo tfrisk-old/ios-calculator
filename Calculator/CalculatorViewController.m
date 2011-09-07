@@ -55,6 +55,11 @@
 // Digit button handler (0-9 and decimal dot)
 - (IBAction)digitPressed:(UIButton *)sender
 {
+    if (!userIsTypingCalculation) {
+        [statusDisplay setText:@""];
+        userIsTypingCalculation = YES;
+    }
+        
     // Read button label
     NSString *digit = [[sender titleLabel] text];
     
@@ -72,10 +77,13 @@
         return;
     }
     
+    [statusDisplay setText:[[statusDisplay text] stringByAppendingString:digit]];
+    
     // Check if user is typing a longer number
     if (userIsInTheMiddleOfTypingANumber) {
         [display setText:[[display text] stringByAppendingString:digit]];
     } else {
+        
         // If user starts with decimal dot, apply 0 for neatness
         if ([digit isEqual:@"."]) {
             [display setText:@"0."];
@@ -90,21 +98,33 @@
 // Operation button handler
 - (IBAction)operationPressed:(UIButton *)sender
 {
+    // Read button label text (sender is UIButton which was pressed)
+    NSString *operation = [[sender titleLabel] text];
+    
     // Check if user is typing a longer number
     if (userIsInTheMiddleOfTypingANumber) {
+        [statusDisplay setText:[[statusDisplay text] stringByAppendingString:operation]];
         [[self brain] setOperand:[[display text] doubleValue]];
         
         // Reset number entry bools
         userIsInTheMiddleOfTypingANumber = NO;
         userIsTypingFloat = NO;
     }
-    // Read button label text (sender is UIButton which was pressed)
-    NSString *operation = [[sender titleLabel] text];
     // Init our model if necessary and perform operation
     double result = [[self brain] performOperation:operation];
     
     // Set UILabel text with specified format
     [display setText:[NSString stringWithFormat:@"%g", result]];
+    if (userIsInTheMiddleOfTypingANumber || [operation isEqual:@"="]) {
+        [statusDisplay setText:[[statusDisplay text] stringByAppendingFormat:@"%g",result]];
+    }
+    // clear statusDisplay after calculation
+    // TODO: single operations need to clear userIsTypingCalculation
+    if ([operation isEqual:@"="]) {
+        userIsTypingCalculation = NO;
+    } else if ([operation isEqual:@"C"]) {
+        [statusDisplay setText:@""];
+    }
 }
 
 @end

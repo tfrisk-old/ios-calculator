@@ -19,6 +19,7 @@
     // Status flags
     BOOL userIsInTheMiddleOfTypingANumber;
     BOOL userIsTypingFloat;
+    BOOL userIsTypingCalculation;
 }
 
 // Action handlers
