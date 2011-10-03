@@ -41,6 +41,12 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
+// Clean up our mess
+- (void) dealloc {
+    [brain release];
+    [super dealloc];
+}
+
 #pragma mark - Calculator functions
 
 // Init our model if necessary

@@ -10,6 +10,11 @@
 
 @implementation CalculatorBrain
 
+// Clean up our mess
+- (void) dealloc {
+    [super dealloc];
+}
+
 - (id)init
 {
     self = [super init];
